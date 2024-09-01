@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'IBM Plex Mono';
+    background: linear-gradient(45deg, #12120f, #0c0e0c, #191d19, #111219);
+    background-size: 800% 800%;
+    animation: gradientMove 35s ease infinite;
+}
+
+.txt-content {
+    text-align: center;
+    margin: 0%;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 35% 0%;
+    }
+    50% {
+        background-position: 66% 100%;
+    }
+    100% {
+        background-position: 35% 0%;
+    }
+}
+
+.link:link {
+    font-family: 'Roboto';
+    color: #000000;
+    text-decoration: none;
+}
+
+
+.link:active {
+    font-family: 'Roboto';
+    color: #000000;
+    text-decoration: none;
+}
+
+
+.link:visited {
+    font-family: 'Roboto';
+    color: #000000;
+    text-decoration: none;
+}
+
+.link:hover {
+    font-family: 'Roboto';
+    color: darkred;
+}
+
+::selection {
+    background-color: darkred;
+    color: #959393;
+}
+
+.header-menu {
+    position: fixed;
+    top: 5%;
+    left: auto;
+    right: auto;
+    padding: 10px 20px;
+    background: #0000004c;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px #0000001a;
+    z-index: 1000;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #0f0f0b;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.nav-menu a:hover {
+    color: #00000082;
+}
+
+.typewriter h1 {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+    color: whitesmoke;
+    font-size: 2em;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: brown; }
+}
