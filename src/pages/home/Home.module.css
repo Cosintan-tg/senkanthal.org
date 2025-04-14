@@ -1,0 +1,301 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:global(body) {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+}
+/* Theme Variables */
+:global(:root) {
+    /* Light Theme (Fire Lily: Bright Red, Orange, Warm Yellow) */
+    --bg-primary: #fff5f0; /* Soft creamy white with a warm tint */
+    --bg-secondary: #ffe8e0; /* Pale peach */
+    --text-primary: #2c1a0f; /* Deep charcoal-brown for contrast */
+    --text-accent: #ffffff; /* Pure white for highlights */
+    --primary: #e63946; /* Fire lily red */
+    --secondary: #f4a261; /* Warm orange */
+    --button-bg: #e63946; /* Red for buttons */
+    --button-text: #ffffff; /* White text on buttons */
+    --button-hover-bg: #f4a261; /* Orange on hover */
+    --button-hover-text: #2c1a0f; /* Dark brown for hover text */
+    --shadow: rgba(230, 57, 70, 0.2); /* Soft red shadow */
+    --transition: all 0.2s ease;
+  }
+  
+  :global([data-theme="dark"]) {
+    /* Dark Theme (Fire Lily: Deep Red, Amber, Muted Orange) */
+    --bg-primary: #2b1c1a; /* Dark reddish-black */
+    --bg-secondary: #3a2a27; /* Muted red-brown */
+    --text-primary: #f5d7d0; /* Soft coral for readability */
+    --text-accent: #f5d7d0; /* Same coral for accents */
+    --primary: #b32d38; /* Deep fire lily red */
+    --secondary: #d97706; /* Rich amber */
+    --button-bg: #b32d38; /* Deep red for buttons */
+    --button-text: #f5d7d0; /* Coral text on buttons */
+    --button-hover-bg: #d97706; /* Amber on hover */
+    --button-hover-text: #2b1c1a; /* Dark background color for hover text */
+    --shadow: rgba(179, 45, 56, 0.3); /* Deeper red shadow */
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme="light"])) {
+      --bg-primary: #2b1c1a;
+      --bg-secondary: #3a2a27;
+      --text-primary: #f5d7d0;
+      --text-accent: #f5d7d0;
+      --primary: #b32d38;
+      --secondary: #d97706;
+      --button-bg: #b32d38;
+      --button-text: #f5d7d0;
+      --button-hover-bg: #d97706;
+      --button-hover-text: #2b1c1a;
+      --shadow: rgba(179, 45, 56, 0.3);
+    }
+  }
+
+/* Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Theme Toggle */
+.themeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--bg-secondary);
+  color: var(--primary);
+  border: none;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 110; /* Above navbar (z-index: 100) */
+  transition: var(--transition);
+}
+
+.themeToggle:hover {
+  background: var(--primary);
+  color: var(--text-accent);
+  box-shadow: 0 0 6px var(--shadow);
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 32rem;
+  margin: 0 auto 1.5rem;
+}
+
+/* CTA Button */
+.ctaButton {
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.ctaButton:hover {
+  background: var(--button-hover-bg);
+  color: var(--button-hover-text);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px var(--shadow);
+}
+
+/* Features Section */
+.features {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto;
+  animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.features h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+}
+
+.feature {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: var(--transition);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px var(--shadow);
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+}
+
+.feature p {
+  font-size: 0.95rem;
+}
+
+/* Connect Section */
+.connect {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: var(--primary);
+  color: var(--text-accent);
+  border-radius: 20px;
+  animation: slideUp 0.8s ease-out 0.4s backwards;
+}
+
+.connect h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.connect p {
+  font-size: 1.1rem;
+  max-width: 32rem;
+  margin: 0 auto 1.5rem;
+}
+
+.connect .ctaButton {
+  background: var(--secondary);
+  color: var(--text-primary);
+}
+
+.connect .ctaButton:hover {
+  background: var(--text-accent);
+  color: var(--primary);
+}
+
+/* Footer */
+.footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .features h2,
+  .connect h2 {
+    font-size: 1.8rem;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 2rem 0.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .ctaButton {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .features,
+  .connect {
+    padding: 2rem 0.5rem;
+  }
+
+  .features h2,
+  .connect h2 {
+    font-size: 1.6rem;
+  }
+
+  .themeToggle {
+    width: 2rem;
+    height: 2rem;
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+}
