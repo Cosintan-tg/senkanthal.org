@@ -29,7 +29,7 @@ function Home() {
   };
 
   const handleStartContributing = () => {
-    window.open("https://discord.gg/senkanthal", "_blank", "noopener,noreferrer");
+    window.open("https://github.com/senkanthal", "_blank", "noopener,noreferrer");
   };
 
   return (
